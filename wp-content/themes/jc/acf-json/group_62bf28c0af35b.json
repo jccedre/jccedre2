@@ -1,0 +1,67 @@
+{
+    "key": "group_62bf28c0af35b",
+    "title": "Site Config",
+    "fields": [
+        {
+            "key": "field_62bf28ce204d1",
+            "label": "Footer Information",
+            "name": "footer_information",
+            "type": "text",
+            "instructions": "Footer Information",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62bf28ee204d2",
+            "label": "Footer Name",
+            "name": "footer_name",
+            "type": "text",
+            "instructions": "Footer Name",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "site-config"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "show_in_graphql": 1,
+    "graphql_field_name": "siteConfig",
+    "map_graphql_types_from_location_rules": 0,
+    "graphql_types": "",
+    "modified": 1656695623
+}
