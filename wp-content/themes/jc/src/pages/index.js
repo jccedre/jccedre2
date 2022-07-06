@@ -3,19 +3,24 @@ import { graphql } from 'gatsby';
 import SEO from '../components/seo';
 import MainWrapper from '../components/MainWrapper/MainWrapper';
 import Footer from '../components/Footer/Footer';
+import HeroContainer from '../components/Hero/HeroContainer';
+
 
 
 class Home extends Component {
   render() {
     const data = this.props.data;
+    const heroImage = data.allWpPage.edges[0].node.featuredImage;
+    const heroSection = data.allWpPage.edges[0].node.homepage.heroSection;
     
     return (
       <Fragment>
         <SEO title='Home' />
         <MainWrapper>
-
+          <HeroContainer 
+          heroImage={heroImage} 
+          heroSection={heroSection} />
         </MainWrapper>
-        {console.log(data)}
         <Footer />
       </Fragment>      
     );
@@ -35,7 +40,6 @@ query allWpFrontPage {
         featuredImage {
           node {
             altText
-            gatsbyImage
             mediaItemUrl
             title
           }
