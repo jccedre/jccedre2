@@ -1,13 +1,28 @@
 import React, { Component } from "react"
 import 'normalize.css';
 import '../style.css';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { detect } from 'detect-browser';
 import { main } from './styles/Main';
 
 import BrowserWarning from './components/BrowserWarning/BrowserWarning';
 import BROWSER_LIST from './constants/BROWSER_LIST';
 
+
+const GlobalStyle = createGlobalStyle`
+  html,body {
+    font-size: 0.8rem;
+    background-color: ${props => props.theme.colors.blueDark} !important;
+
+    ${props => props.theme.media.medium`
+      font-size: 1rem;
+    `}
+
+     ${props => props.theme.media.xlarge`
+      font-size: 1.2rem;
+    `}
+  }
+`;
 
 const StyledWrapRootProvider = styled.main`
   height: 100vh;
@@ -30,6 +45,14 @@ const StyledWrapRootProvider = styled.main`
     height: 100vh;
     position: relative;
   }
+
+
+   ${props => props.theme.media.medium`
+      html {
+        font-size: 10px;
+      }
+    `}
+
 `;
 
 
@@ -105,6 +128,7 @@ class WrapRootProvider extends Component {
     }
     return (
       <ThemeProvider theme={main}>
+      <GlobalStyle />
         <StyledWrapRootProvider>
           <BrowserWarning
             browserItems={this.state.browserList}

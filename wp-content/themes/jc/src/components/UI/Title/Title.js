@@ -6,7 +6,8 @@ import styled, { withTheme } from 'styled-components';
 const StyledTitle = styled.h1`
   color: ${props => props.theme.colors[props.color]};
   font-family: ${props => props.theme.fonts.title};
-  font-size: ${props => props.theme.headings[props.type].fontSize};  
+  font-size: ${props => props.theme.headings[props.type].fontSize};
+  margin: 0;
 `;
 
 const title = (props) => {

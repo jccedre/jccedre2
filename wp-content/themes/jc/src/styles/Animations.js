@@ -33,10 +33,25 @@ const moveProgress = keyframes`
   }
 `;
 
+const gradient = keyframes`
+  0% {
+    background-position: 14% 0%;
+  }
+  
+  50% {
+    background-position: 87% 100%;
+  }
+  
+  100% {
+    background-position: 14% 0%;
+  }
+`;
+
 const animations = {
   spinnerAnimation: spinnerAnimation,
   fadeIn: fadeIn,
   moveProgress: moveProgress,
+  gradient: gradient,
 }
 
 export default animations;

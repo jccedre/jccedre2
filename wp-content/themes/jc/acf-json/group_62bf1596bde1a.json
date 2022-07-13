@@ -56,6 +56,26 @@
                     "maxlength": ""
                 },
                 {
+                    "key": "field_62c871cbe59a9",
+                    "label": "Hero Job Title",
+                    "name": "hero_job_title",
+                    "type": "text",
+                    "instructions": "Enter job title text here",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_62bf1658683aa",
                     "label": "Hero Description",
                     "name": "hero_description",
@@ -75,11 +95,11 @@
                     "new_lines": ""
                 },
                 {
-                    "key": "field_62bf168a683ab",
-                    "label": "Hero Job Title",
-                    "name": "hero_job_title",
-                    "type": "text",
-                    "instructions": "Enter Hero Job Title Here",
+                    "key": "field_62c8625678f07",
+                    "label": "Hero Info Generator",
+                    "name": "hero_info_generator",
+                    "type": "repeater",
+                    "instructions": "Create Hero Info Items here",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -87,49 +107,54 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_62bf16a2683ac",
-                    "label": "Hero Job Experience",
-                    "name": "hero_job_experience",
-                    "type": "text",
-                    "instructions": "Enter Hero Job Experience here",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_62bf16b2683ad",
-                    "label": "Hero Job Country",
-                    "name": "hero_job_country",
-                    "type": "text",
-                    "instructions": "Enter Hero Job Country here",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "show_in_graphql": 1,
+                    "collapsed": "",
+                    "min": 3,
+                    "max": 0,
+                    "layout": "row",
+                    "button_label": "Add Item",
+                    "sub_fields": [
+                        {
+                            "key": "field_62c8627178f08",
+                            "label": "Hero Info Item Title",
+                            "name": "hero_info_item_title",
+                            "type": "text",
+                            "instructions": "Enter hero info item title here",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_62c8628b78f09",
+                            "label": "Hero Info Item Subtitle",
+                            "name": "hero_info_item_subtitle",
+                            "type": "text",
+                            "instructions": "Enter Hero Info Item Subtitle here",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ]
                 },
                 {
                     "key": "field_62bf16e7683ae",
@@ -205,6 +230,31 @@
             },
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_62ce4ab5b42c9",
+                    "label": "Services Section Image",
+                    "name": "services_section_image",
+                    "type": "image",
+                    "instructions": "Upload Image for Services Section Here",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
                 {
                     "key": "field_62bf1797683b2",
                     "label": "Services Section Subtitle",
@@ -1131,5 +1181,5 @@
     "graphql_field_name": "homepage",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1656716407
+    "modified": 1657686741
 }

@@ -1,26 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import HeroImage from './HeroImage';
+import HeroImageContainer from './HeroImageContainer';
 import HeroContent from './HeroContent';
+
 
 
 const StyledHeroContainer = styled.section`
   display: grid;
-  grid-template-columns: 2.5fr 2fr;
+  align-items: center;
+  grid-template-columns: minmax(320px, 1fr);
+
+
+   ${props => props.theme.media.large`
+      grid-template-columns: 2.5fr 2fr;
+    `}
+
 `;
 
 const heroContainer = (props) => {
   const heroContent = props.heroSection;
-  console.log(heroContent)
   return (
     <StyledHeroContainer>
-    <HeroImage 
-    src={props.heroImage.node.mediaItemUrl} 
-    alt={props.heroImage.node.altText} />
+      <HeroImageContainer 
+        src={props.heroImage.node.mediaItemUrl}
+        alt={props.heroImage.node.altText}
+        content={heroContent.heroJobTitle}
+      />
     <HeroContent 
       subTitle={heroContent.heroSubtitle}
       title={heroContent.heroTitle}
+      paragraph={heroContent.heroDescription}
+      heroItems={heroContent.heroInfoGenerator}
+      buttonText={heroContent.heroResumeButtonText}
+      resumeFile={heroContent.heroResumeFile}
     />
     </StyledHeroContainer>
   );
