@@ -12,7 +12,8 @@ import BROWSER_LIST from './constants/BROWSER_LIST';
 const GlobalStyle = createGlobalStyle`
   html,body {
     font-size: 0.8rem;
-    background-color: ${props => props.theme.colors.blueDark} !important;
+    background-color: ${props => props.theme.colors.siteBackground} !important;
+    
 
     ${props => props.theme.media.medium`
       font-size: 1rem;
@@ -25,17 +26,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const StyledWrapRootProvider = styled.main`
-  height: 100vh;
-  /* If you need to support browser without CSS var support (<= IE11) */
-  height: calc(100vh - var(--vh-offset, 0px));
-  /* enable vh fix */
-  width: 100vw;
-  display: flex;
-  flex-flow: column;
-  flex: 1 0 100%;
-  overflow: ${props => props.overflow ? 'hidden' : 'initial'};
-  -webkit-overflow-scrolling: touch;
-  min-height: 0;
 
   .tl-edges {
     width: 100%;
@@ -46,10 +36,21 @@ const StyledWrapRootProvider = styled.main`
     position: relative;
   }
 
+  #gatsby-focus-wrapper {
+    max-width: 100%;
+  }
+
 
    ${props => props.theme.media.medium`
       html {
         font-size: 10px;
+      }
+    `}
+
+      ${props => props.theme.media.large`
+      #gatsby-focus-wrapper {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 6rem;
       }
     `}
 

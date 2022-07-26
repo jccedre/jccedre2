@@ -231,3 +231,9 @@ async function getPages({ graphql, reporter }) {
 
   return graphqlResult.data.allWpPage.edges
 }
+
+//Fixes issue with local dev on mobile not showing images
+//https://github.com/gatsbyjs/gatsby/issues/5264#issuecomment-405424852
+if (process.env.NODE_ENV === 'development') {
+  process.env.GATSBY_WEBPACK_PUBLICPATH = '/'
+}

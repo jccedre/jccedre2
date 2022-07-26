@@ -23,7 +23,10 @@ const colors = {
   blueDark: '#151E29',
   blueDarkHover: '#202F40',
   blueDarkActive: '#314963',
-  shadow: 'rgba(000, 000, 000, 0.3)',
+  cardBackground: '#18222E',
+  cardBackgroundDark: '#101923',
+  siteBackground: '#0E151D',
+  shadow: 'rgba(000, 000`, 000, 0.3)',
   shadowHover: 'rgba(000, 000, 000, 0.4)',
   shadowActive: 'rgba(000, 000, 000, 0.5)',
 }

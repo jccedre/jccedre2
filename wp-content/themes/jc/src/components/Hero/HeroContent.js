@@ -12,7 +12,7 @@ import SendIcon from '../Icons/SendIcon';
 const StyledHeroContent = styled.div`
  height: 100%;
  background: white;
- padding: 1rem;
+ padding: 2rem 1rem;
 
  ${props => props.theme.media.large`
     display: flex;
@@ -96,12 +96,12 @@ const heroContent = (props) => {
   return (
     <StyledHeroContent>
       <SubTitle content={props.subTitle} />
-      <Title content={props.title} type={1} color="blueDark" />
+      <Title content={props.title} type={1} color='blueDark' />
       <StyledHeroParagraph 
       content={props.paragraph} 
-      color="grayDark"
-      fontSize="heroParagraph"
-      fontFamily="body" />
+      color='grayDark'
+      fontSize='heroParagraph'
+      fontFamily='body' />
       <StyledHr />
       <HeroInfoItems items={props.heroItems} />
       <StyledCTAContainer>
@@ -111,7 +111,7 @@ const heroContent = (props) => {
         download={props.resumeFile.filename}
         href={props.resumeFile.mediaItemUrl}
         target={'_blank'} />
-        <StyledAnchorLink to="/#contact" title="Contact Me Now">
+        <StyledAnchorLink to='/#contact' title='Contact Me Now'>
           <span><SendIcon /></span>
           <span>Contact Me Now</span>
         </StyledAnchorLink>

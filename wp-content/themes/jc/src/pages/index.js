@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 import SEO from '../components/seo';
 import MainWrapper from '../components/MainWrapper/MainWrapper';
+import Sidebar from '../components/Sidebar/Sidebar';
 import Footer from '../components/Footer/Footer';
 import HeroContainer from '../components/Hero/HeroContainer';
 import ServicesContainer from '../components/Services/ServicesContainer';
+import StatsContainer from '../components/Stats/StatsContainer';
 
 const StyledDiv = styled.div`
   height: 1200px;
@@ -27,7 +29,7 @@ class Home extends Component {
     const aboutMeSection = defaultPath.homepage.aboutMeSection;
     const contactSection = defaultPath.homepage.contactSection;
 
-    console.log(servicesSection)
+    console.log(statsSection)
     
     return (
       <Fragment>
@@ -37,8 +39,10 @@ class Home extends Component {
           heroImage={heroImage} 
           heroSection={heroSection} />
           <ServicesContainer data={servicesSection} />
+          <StatsContainer data={statsSection} />
           <StyledDiv />
         </MainWrapper>
+        <Sidebar />
         <Footer />
       </Fragment>      
     );

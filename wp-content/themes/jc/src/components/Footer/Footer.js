@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const StyledFooter = styled.footer`
-  background: ${props => props.theme.colors.blueDark};
+  background: ${props => props.theme.colors.siteBackground};
   padding: 2rem 1rem;
   font-family: 'Advent Pro', sans-serif;
   color: white;
