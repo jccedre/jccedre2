@@ -1,5 +1,4 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from 'react';
 import styled from 'styled-components';
 
 
@@ -9,7 +8,7 @@ import SubTitle from '../components/UI/SubTitle/SubTitle';
 import Title from '../components/UI/Title/Title';
 import Paragraph from '../components/UI/Paragraph/Paragraph';
 import Footer from '../components/Footer/Footer';
-import SEO from '../components/seo'
+import SEO from '../components/seo';
 import image404 from '../assets/images/404Image.png';
 
 const StyledHeroContainer = styled.section`
@@ -17,11 +16,9 @@ const StyledHeroContainer = styled.section`
   align-items: center;
   grid-template-columns: minmax(320px, 1fr);
 
-
    ${props => props.theme.media.large`
       grid-template-columns: 2.5fr 2fr;
     `}
-
 `;
 
 const StyledHeroContent = styled.div`
@@ -45,7 +42,7 @@ const StyledHeroParagraph = styled(Paragraph)`
 `;
 
 const NotFoundPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
+  const siteTitle = data.site.siteMetadata.title;
 
   return (
     <>
@@ -73,14 +70,4 @@ const NotFoundPage = ({ data, location }) => {
   )
 }
 
-export default NotFoundPage
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
+export default NotFoundPage;

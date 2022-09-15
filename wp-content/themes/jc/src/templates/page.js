@@ -30,7 +30,7 @@ class PageTemplate extends Component {
     return (
       <Fragment>
         {/* <SEO title={currentPage.title} /> */}
-        <div>Helloaa</div>
+        {/* <div>Add page content here</div> */}
       </Fragment>
     )
   }
