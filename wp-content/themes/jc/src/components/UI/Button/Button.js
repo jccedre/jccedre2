@@ -15,7 +15,7 @@ const StyledButton = styled.button`
   font-family: ${props => props.theme.fonts.subTitle};
   border: 0;  
   max-width: 165px;
-  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s, opacity 0.3s;
   padding: 1.2rem 2.2rem;
   display: block;
   background: linear-gradient(120deg, #E15175, #FD9728, #E15175);
@@ -29,7 +29,8 @@ const StyledButton = styled.button`
 
   &:hover,
   &:focus {
-
+    color: ${props => props.theme.colors.white};
+    opacity: 0.9;
   }
 
   &:active {

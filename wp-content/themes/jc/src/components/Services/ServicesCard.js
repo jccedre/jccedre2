@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useSpring, animated } from 'react-spring';
 
 import Paragraph from '../UI/Paragraph/Paragraph';
 import AppIcon from '../Icons/AppIcon';
@@ -9,7 +10,7 @@ import PhotoIcon from '../Icons/PhotoIcon';
 import WebIcon from '../Icons/WebIcon';
 import CardAccent from '../UI/CardAccent/CardAccent';
 
-const StyledServicesCard = styled.div`
+const StyledServicesCard = styled(animated.div)`
   background-color: ${props => props.theme.colors.cardBackground};
   padding: 2rem 1rem;
   position: relative;
@@ -49,8 +50,38 @@ const StyledCustomCardAccent = styled(CardAccent)`
   `}
 `;
 
+
+const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
+const trans1 = (x, y) => `translate3d(${x / 15}px,${y / 15}px,0)`;
+
+
+
 const servicesCard = (props) => {
   let icon = null;
+  let [initial, setIntitial] = useState(0);
+  let [destination, setDestination] = useState(0);
+
+  const [offsetAnimation, set] = useSpring(() => ({
+    xy: [0, 0],
+      config: {
+        mass: 10,
+        tension: 550,
+        friction: 140
+      }
+    }));
+
+    let mouseMove = ({ clientX: x, clientY: y }) => {
+      let destinationValue = destination;
+      set({ xy: calc(x, y) });
+      setDestination(destinationValue + 1);
+    };
+
+    let mouseOut = () => {
+      set({ xy: [0, 0] });
+      setIntitial(initial + destination);
+    };
+
+
 
   switch (props.icon) {
     case ('web'):
@@ -72,7 +103,11 @@ const servicesCard = (props) => {
       icon = null;
   }
   return (
-    <StyledServicesCard>
+    <StyledServicesCard
+      onMouseMove={mouseMove}
+      onMouseOut={mouseOut}
+      style={{ transform: offsetAnimation.xy.to(trans1) }}
+      >
       {icon}
       <StyledTitle>{props.subTitle}</StyledTitle>
       <StyledDescription
@@ -81,7 +116,9 @@ const servicesCard = (props) => {
         fontFamily='body'
         content={props.description}
          />
-      <StyledCustomCardAccent />
+      <StyledCustomCardAccent 
+      rotateValue={destination}
+       />
     </StyledServicesCard>
   );
 }

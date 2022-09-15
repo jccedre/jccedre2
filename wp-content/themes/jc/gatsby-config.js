@@ -3,8 +3,8 @@ module.exports = {
     title: `Jean Carlos Cedre Personal Website`,
     description: `Portfolio Website`,
     author: `@jccedre`,
+    twitterUsername: `@jccedre`,
   },
-
 
   /**
    * Adding plugins to this array adds them to your Gatsby site.
@@ -28,6 +28,7 @@ module.exports = {
         url:
           process.env.WPGRAPHQL_URL ||
           `http://localhost:8000/graphql`,
+        verboseOutput: true,
       },
     },
 
@@ -53,17 +54,18 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-smoothscroll`,
     {
       // See https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/?=gatsby-plugin-manifest
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter WordPress Blog`,
-        short_name: `GatsbyJS & WP`,
+        name: `Jean Carlos Cedre`,
+        short_name: `JCCedre`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        background_color: `#0E151D`,
+        theme_color: `#151E29`,
+        display: `standalone`,
+        icon: `src/assets/images/favicon.png`,
       },
     },
 
@@ -93,12 +95,6 @@ module.exports = {
             weights: ['600', '700'],
           },
         ],
-      }
-    },
-    {
-      resolve: "gatsby-plugin-anchor-links",
-      options: {
-        offset: -100
       }
     },
   ],

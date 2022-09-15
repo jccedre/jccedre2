@@ -7,8 +7,6 @@ import Paragraph from '../UI/Paragraph/Paragraph';
 
 
 const StyledServicesPrimaryCard = styled.div`
-
-
   ${props => props.theme.media.medium`
     padding: 2rem;
     max-width: 500px;
@@ -17,11 +15,6 @@ const StyledServicesPrimaryCard = styled.div`
 
 const StyledTagline = styled(Paragraph)`
   margin: 1rem 0;
-
-
-  ${props => props.theme.media.large`
-
-  `}
 `;
 
 const StyledDescription = styled(Paragraph)`
@@ -43,7 +36,6 @@ const servicesPrimaryCard = (props) => {
       fontSize='body'
       fontFamily='subTitle'
       content={props.tagline} />
-      
       <StyledDescription 
         color='gray'
         fontSize='body'

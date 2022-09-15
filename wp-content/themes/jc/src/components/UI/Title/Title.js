@@ -16,6 +16,7 @@ const title = (props) => {
     type={props.type}
     as={props.theme.headings[props.type].tag}
     color={props.color}
+    className={props.className}
     >
       {props.content}
     </StyledTitle>

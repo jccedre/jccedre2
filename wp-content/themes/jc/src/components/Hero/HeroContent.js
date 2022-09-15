@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
-import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import SubTitle from '../UI/SubTitle/SubTitle';
 import Title from '../UI/Title/Title';
 import Paragraph from '../UI/Paragraph/Paragraph';
@@ -58,7 +58,7 @@ const StyledCTAContainer = styled.div`
 
 `;
 
-const StyledAnchorLink = styled(AnchorLink)`
+const StyledLink = styled.a`
   color: ${props => props.theme.colors.black};
   font-family: ${props => props.theme.fonts.body};
   font-weight: 500;
@@ -89,7 +89,6 @@ const StyledAnchorLink = styled(AnchorLink)`
     height: 20px;
     margin-right: 0.5rem;
   }
-
 `;
 
 const heroContent = (props) => {
@@ -111,10 +110,12 @@ const heroContent = (props) => {
         download={props.resumeFile.filename}
         href={props.resumeFile.mediaItemUrl}
         target={'_blank'} />
-        <StyledAnchorLink to='/#contact' title='Contact Me Now'>
+        <StyledLink 
+        onClick={() => scrollTo('#contact')} 
+        title='Contact Me Now'>
           <span><SendIcon /></span>
           <span>Contact Me Now</span>
-        </StyledAnchorLink>
+        </StyledLink>
       </StyledCTAContainer>
     </StyledHeroContent>
   );

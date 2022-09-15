@@ -47,6 +47,12 @@ const gradient = keyframes`
   }
 `;
 
+export const circleAnimation = (value) => keyframes`
+  to {
+    stroke-dashoffset: ${value};
+  }
+`;
+
 const animations = {
   spinnerAnimation: spinnerAnimation,
   fadeIn: fadeIn,

@@ -4,10 +4,10 @@
 function jc_portfolio_post_type() {
 
 	$labels = array(
-		'name'                  => _x( 'Portfolio Types', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Portfolio Type', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Portfolio Types', 'text_domain' ),
-		'name_admin_bar'        => __( 'Portfolio Type', 'text_domain' ),
+		'name'                  => _x( 'Portfolio Items', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Portfolio Item', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Portfolio', 'text_domain' ),
+		'name_admin_bar'        => __( 'Portfolio', 'text_domain' ),
 		'archives'              => __( 'Portfolio Archives', 'text_domain' ),
 		'attributes'            => __( 'Portfolio Attributes', 'text_domain' ),
 		'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
@@ -33,12 +33,12 @@ function jc_portfolio_post_type() {
 		'filter_items_list'     => __( 'Filter portfolio items list', 'text_domain' ),
 	);
 	$args = array(
-		'label'                 => __( 'Portfolio Type', 'text_domain' ),
+		'label'                 => __( 'Portfolio Items', 'text_domain' ),
 		'description'           => __( 'Portfolio Custom Post Type', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
 		'taxonomies'            => array( 'category', 'post_tag' ),
-		'hierarchical'          => false,
+		'hierarchical'          => true,
 		'public'                => true,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
@@ -52,6 +52,10 @@ function jc_portfolio_post_type() {
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
 		'show_in_rest'          => true,
+    'rest_base'             => 'portfolio-items',
+    'show_in_graphql'       => true,
+    'graphql_single_name'   => 'portfolioItem',
+    'graphql_plural_name'   => 'portfolioItems',
 	);
 	register_post_type( 'portfolio_type', $args );
 

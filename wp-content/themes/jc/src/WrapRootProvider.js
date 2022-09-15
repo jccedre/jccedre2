@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 import 'normalize.css';
 import '../style.css';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
@@ -7,7 +7,6 @@ import { main } from './styles/Main';
 
 import BrowserWarning from './components/BrowserWarning/BrowserWarning';
 import BROWSER_LIST from './constants/BROWSER_LIST';
-
 
 const GlobalStyle = createGlobalStyle`
   html,body {
@@ -26,6 +25,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const StyledWrapRootProvider = styled.main`
+ overflow: initial;
+
 
   .tl-edges {
     width: 100%;
@@ -46,14 +47,6 @@ const StyledWrapRootProvider = styled.main`
         font-size: 10px;
       }
     `}
-
-      ${props => props.theme.media.large`
-      #gatsby-focus-wrapper {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 6rem;
-      }
-    `}
-
 `;
 
 
@@ -63,9 +56,8 @@ class WrapRootProvider extends Component {
 
     this.state = {
       browserList: BROWSER_LIST,
-      browserFlag: false,
+      browserFlag: true,
       browserName: null,
-      showModal: false
     }
   }
 
@@ -79,18 +71,21 @@ class WrapRootProvider extends Component {
     const browserNum = browserVersion[0];
     this.setState({browserName: browser.name});
 
+    console.log(browserNum)
+    console.log(browser.name)
+
     switch (browser && browser.name) {
       case 'chrome':
-        if (browserNum >= '68') { this.setState({ browserFlag: false }) }
+        if (browserNum >= '105') { this.setState({ browserFlag: false }) }
         break;
       case 'edge':
-        if (browserNum >= '11') { this.setState({ browserFlag: false }) }
+        if (browserNum >= '105') { this.setState({ browserFlag: false }) }
         break;
       case 'firefox':
-        if (browserNum >= '61') { this.setState({ browserFlag: false }) }
+        if (browserNum >= '104') { this.setState({ browserFlag: false }) }
         break;
       case 'safari':
-        if (browserNum >= '11') { this.setState({ browserFlag: false }) }
+        if (browserNum >= '15') { this.setState({ browserFlag: false }) }
         break;
       case 'ios':
         this.setState({ browserFlag: false })

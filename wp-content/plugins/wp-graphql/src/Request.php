@@ -343,9 +343,9 @@ class Request {
 			$nonce = null;
 
 			if ( isset( $_REQUEST['_wpnonce'] ) ) {
-				$nonce = $_REQUEST['_wpnonce'];
+				$nonce = $_REQUEST['_wpnonce']; // phpcs:ignore WordPress.Security.NonceVerification.Recommended,WordPress.Security.ValidatedSanitizedInput.MissingUnslash,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 			} elseif ( isset( $_SERVER['HTTP_X_WP_NONCE'] ) ) {
-				$nonce = $_SERVER['HTTP_X_WP_NONCE'];
+				$nonce = $_SERVER['HTTP_X_WP_NONCE']; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 			}
 
 			if ( null === $nonce ) {
@@ -436,12 +436,12 @@ class Request {
 		 */
 
 		if ( ! empty( $this->global_wp_the_query ) ) {
-			$GLOBALS['wp_the_query'] = $this->global_wp_the_query;
-			wp_reset_query();
+			$GLOBALS['wp_the_query'] = $this->global_wp_the_query; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
+			wp_reset_query(); // phpcs:ignore WordPress.WP.DiscouragedFunctions.wp_reset_query_wp_reset_query
 		}
 
 		if ( ! empty( $this->global_post ) ) {
-			$GLOBALS['post'] = $this->global_post;
+			$GLOBALS['post'] = $this->global_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
 			setup_postdata( $this->global_post );
 		}
 
@@ -476,15 +476,17 @@ class Request {
 		$query     = null;
 		$operation = null;
 		$variables = null;
+		$query_id  = null;
 
 		if ( $this->params instanceof OperationParams ) {
 			$operation = $this->params->operation;
 			$query     = $this->params->query;
+			$query_id  = $this->params->queryId;
 			$variables = $this->params->variables;
 		} elseif ( is_array( $this->params ) ) {
-
 			$operation = $this->params[ $key ]->operation ?? '';
 			$query     = $this->params[ $key ]->query ?? '';
+			$query_id  = $this->params[ $key ]->queryId ?? null;
 			$variables = $this->params[ $key ]->variables ?? null;
 		}
 
@@ -533,10 +535,11 @@ class Request {
 		 * @param string     $query     The query that GraphQL executed
 		 * @param array|null $variables Variables to passed to your GraphQL request
 		 * @param Request    $request   Instance of the Request
+		 * @param string|null $query_id The query id that GraphQL executed
 		 *
 		 * @since 0.0.5
 		 */
-		$filtered_response = apply_filters( 'graphql_request_results', $response, $this->schema, $operation, $query, $variables, $this );
+		$filtered_response = apply_filters( 'graphql_request_results', $response, $this->schema, $operation, $query, $variables, $this, $query_id );
 
 		/**
 		 * Run an action after the response has been filtered, as the response is being returned.
@@ -549,8 +552,9 @@ class Request {
 		 * @param string     $query             The query that GraphQL executed
 		 * @param array|null $variables         Variables to passed to your GraphQL query
 		 * @param Request    $request           Instance of the Request
+		 * @param string|null $query_id          The query id that GraphQL executed
 		 */
-		do_action( 'graphql_return_response', $filtered_response, $response, $this->schema, $operation, $query, $variables, $this );
+		do_action( 'graphql_return_response', $filtered_response, $response, $this->schema, $operation, $query, $variables, $this, $query_id );
 
 		/**
 		 * Filter "is_graphql_request" back to false.
@@ -611,9 +615,19 @@ class Request {
 			$response = apply_filters( 'pre_graphql_execute_request', null, $this );
 
 			if ( null === $response ) {
+
+				/**
+				 * Allow the query string to be determined by a filter. Ex, when params->queryId is present, query can be retrieved.
+				 */
+				$query = apply_filters(
+					'graphql_execute_query_params',
+					isset( $this->params->query ) ? $this->params->query : '',
+					$this->params
+				);
+
 				$result = \GraphQL\GraphQL::executeQuery(
 					$this->schema,
-					isset( $this->params->query ) ? $this->params->query : '',
+					$query,
 					$this->root_value,
 					$this->app_context,
 					isset( $this->params->variables ) ? $this->params->variables : null,

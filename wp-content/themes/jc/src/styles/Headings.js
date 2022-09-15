@@ -21,7 +21,7 @@ const headings = {
   },
   6: {
     tag: 'h6',
-    fontSize: '2.5rem',
+    fontSize: '2rem',
   },
 };
 

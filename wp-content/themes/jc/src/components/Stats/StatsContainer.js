@@ -7,20 +7,21 @@ const StyledStatsContainer = styled.section`
   display: grid;
   align-items: center;
   grid-template-columns: none;
+  grid-template-areas:
+    "statsCardWrapper";
   
   
 
   ${props => props.theme.media.large`
+    grid-template-areas:
+    ".  statsCardWrapper";
     grid-template-columns: 2fr 4fr;
     align-items: start;
-  `}
-
-  ${props => props.theme.media.xlarge`
-   
   `}
 `;
 
 const StyledStatsCardWrapper = styled.div`
+  grid-area: statsCardWrapper;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   
@@ -33,7 +34,6 @@ const StyledStatsCardWrapper = styled.div`
 const statsContainer = (props) => {
   return (
     <StyledStatsContainer>
-      <div></div>
       <StyledStatsCardWrapper>
         <StatsCards items={props.data} />
       </StyledStatsCardWrapper>

@@ -11,22 +11,22 @@ const browserList = [
   {
     id: 1,
     browserIcon: EdgeIcon,
-    browserVersion: 'Edge: 11+',
+    browserVersion: 'Edge: 105+',
   },
   {
     id: 2,
     browserIcon: FirefoxIcon,
-    browserVersion: 'Firefox: 62+',
+    browserVersion: 'Firefox: 104+',
   },
   {
     id: 3,
     browserIcon: SafariIcon,
-    browserVersion: 'Safari: 11+',
+    browserVersion: 'Safari: 15+',
   },
   {
     id: 4,
     browserIcon: ChromeIcon,
-    browserVersion: 'Chrome: 68+',
+    browserVersion: 'Chrome: 105+',
   },
 ];
 

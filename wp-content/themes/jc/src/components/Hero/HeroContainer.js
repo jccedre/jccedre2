@@ -34,6 +34,7 @@ const heroContainer = (props) => {
       heroItems={heroContent.heroInfoGenerator}
       buttonText={heroContent.heroResumeButtonText}
       resumeFile={heroContent.heroResumeFile}
+      emailLink={heroContent.heroEmailLink}
     />
     </StyledHeroContainer>
   );
