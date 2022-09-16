@@ -71,9 +71,6 @@ class WrapRootProvider extends Component {
     const browserNum = browserVersion[0];
     this.setState({browserName: browser.name});
 
-    console.log(browserNum)
-    console.log(browser.name)
-
     switch (browser && browser.name) {
       case 'chrome':
         if (browserNum >= '105') { this.setState({ browserFlag: false }) }
