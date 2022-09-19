@@ -1,8 +1,6 @@
 # WordPress #
 ############
 wp-config-local.php
-wp-config.php
-configCache.php
 wp-cli.local.yml
 wp-content/uploads
 wp-content/blogs.dir/
@@ -23,6 +21,9 @@ wp-content/wfcache/
 wp-content/wflogs/
 wp-content/backups/
 
+# Avoid accidental modification of pantheon.upstream.yml in sites
+# created from this upstream
+pantheon.upstream.yml
 
 # Packages #
 ############
@@ -36,6 +37,7 @@ wp-content/backups/
 *.tar
 *.zip
 *.tgz
+!wp-includes/**/*.gz
 
 # Logs and databases #
 ######################
