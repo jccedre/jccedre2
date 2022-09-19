@@ -27,7 +27,6 @@ const GlobalStyle = createGlobalStyle`
 const StyledWrapRootProvider = styled.main`
  overflow: initial;
 
-
   .tl-edges {
     width: 100%;
   }
