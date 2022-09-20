@@ -55,7 +55,6 @@ const StyledCTAContainer = styled.div`
     justify-content: space-around;
     
   `}
-
 `;
 
 const StyledLink = styled.a`
@@ -71,7 +70,6 @@ const StyledLink = styled.a`
   &:hover,
   &:focus {
     transform: scale(1.02);
-    
   }
 
   &:active {
