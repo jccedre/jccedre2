@@ -4,14 +4,10 @@ import { useSpring, animated } from 'react-spring';
 
 
 const StyledPortfolioItem = styled(animated.img)`
-  
   transition: box-shadow 1s;
-
   &:hover {
     z-index: 200;
     box-shadow: 0px 0px 21px 0px rgba(59,197,207,0.59);
-    
-
   }
 `;
 

@@ -41,9 +41,7 @@ const StyledHeroParagraph = styled(Paragraph)`
   `}
 `;
 
-const NotFoundPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title;
-
+const NotFoundPage = (props) => {
   return (
     <>
       <SEO title='404: Not Found' />

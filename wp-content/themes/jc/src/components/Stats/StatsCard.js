@@ -15,14 +15,17 @@ const handleColorType = (colorid, props) => {
 
 const useIsInViewport = (ref) => {
   const [isIntersecting, setIsIntersecting] = useState(false);
+  let observer = null;
 
-  const observer = useMemo(
-    () =>
-      new IntersectionObserver(([entry]) =>
-        setIsIntersecting(entry.isIntersecting),
-      ),
-    [],
-  );
+  if (typeof window !== 'undefined') {
+    observer = useMemo(
+      () =>
+        new IntersectionObserver(([entry]) =>
+          setIsIntersecting(entry.isIntersecting),
+        ),
+      [],
+    );
+  }
 
   useEffect(() => {
     observer.observe(ref.current);
