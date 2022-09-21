@@ -54,15 +54,15 @@ class WrapRootProvider extends Component {
     super(props);
 
     this.state = {
-      browserList: BROWSER_LIST,
-      browserFlag: true,
-      browserName: null,
+      // browserList: BROWSER_LIST,
+      // browserFlag: true,
+      // browserName: null,
     }
   }
 
   componentDidMount() {
-    const browser = detect();
-    this.checkBrowser(browser);
+    // const browser = detect();
+    // this.checkBrowser(browser);
   }
 
   checkBrowser(browser) {
@@ -115,16 +115,20 @@ class WrapRootProvider extends Component {
   render() {
     let { children } = this.props;
 
-    if (this.state.browserFlag) {
-      children = null;
-    }
+    // if (this.state.browserFlag) {
+    //   children = null;
+    // }
     return (
       <ThemeProvider theme={main}>
       <GlobalStyle />
         <StyledWrapRootProvider>
+        
+          {/* 
+            Removed for now. I don't think I really need this unless
+            I have some crazy animations.
           <BrowserWarning
             browserItems={this.state.browserList}
-            show={this.state.browserFlag} />
+            show={this.state.browserFlag} /> */}
           {children}
         </StyledWrapRootProvider>
       </ThemeProvider>
