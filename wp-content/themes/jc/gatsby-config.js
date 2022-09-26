@@ -28,6 +28,9 @@ module.exports = {
         url:
           process.env.WPGRAPHQL_URL ||
           `http://localhost:8000/graphql`,
+        html: {
+          useGatsbyImage: true,
+        },
       },
     },
 
