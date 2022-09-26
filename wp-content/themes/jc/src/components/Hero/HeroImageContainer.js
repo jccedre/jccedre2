@@ -16,7 +16,7 @@ const heroImageContainer = (props) => {
   return (
     <StyledHeroImageContainer>
       <HeroImage
-        src={props.src}
+        gatsbyImage={props.gatsbyImage}
         alt={props.alt} />
       <HeroBanner content={props.content} />
     </StyledHeroImageContainer>

@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 
-const StyledPortfolioItem = styled(animated.img)`
+const StyledPortfolioItem = styled(GatsbyImage)`
   transition: box-shadow 1s;
   &:hover {
     z-index: 200;
@@ -16,6 +17,7 @@ const trans1 = (x, y) => `translate3d(${x / 200}px,${y / 15}px,0)`;
 
 
 const portfolioItem = (props) => {
+  const image = getImage(props.gatsbyImage);
   const [offsetAnimation, set] = useSpring(() => ({
     xy: [0, 0],
     config: {
@@ -32,15 +34,20 @@ const portfolioItem = (props) => {
   let mouseOut = () => {
     set({ xy: [0, 0] });
   };
-  return <StyledPortfolioItem
-  className={props.className} 
-  onClick={props.portfolioItemClick}
-  onMouseMove={mouseMove}
-  onMouseOut={mouseOut}
-  style={{ transform: offsetAnimation.xy.to(trans1) }}
-  src={props.imageURL} 
-  alt={props.altText}
-   />;
+  return (
+    <animated.div
+      className={props.className + ' animated__wrapper'}  
+      onClick={props.portfolioItemClick}
+      onMouseMove={mouseMove}
+      onMouseOut={mouseOut}
+      style={{ transform: offsetAnimation.xy.to(trans1) }}
+      >
+        <StyledPortfolioItem
+          image={image}
+          alt={props.altText}
+        />
+    </animated.div>
+  );
 }
 
 export default portfolioItem;

@@ -72,11 +72,16 @@ ${props => props.theme.media.large`
   } */}
 }
 
-.swiper-slide img {
+.swiper-slide img,
+.swiper-slide .animated__wrapper {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.gatsby-image-wrapper {
+  height: 100%;
 }
 `;
 
@@ -102,7 +107,7 @@ const portfolioCarousel = (props) => {
                 key={item.node.databaseId}
                 portfolioItemClick={() => props.portfolioItemClick(item.node.databaseId)}
                 className={`${index === 0 || index === 3 ? 'large' : 'small'}`}
-                imageURL={item.node.featuredImage.node.mediaItemUrl}
+                gatsbyImage={item.node.featuredImage.node}
                 altText={item.node.featuredImage.node.altText} />
             ))}
           </SwiperSlide>

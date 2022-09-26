@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import SubTitle from '../UI/SubTitle/SubTitle';
 import Title from '../UI/Title/Title';
@@ -29,7 +30,7 @@ const StyledPortfolioSecondary = styled(animated.div)`
   z-index: 2;
 `;
 
-const StyledPortfolioImage = styled.img`
+const StyledPortfolioImage = styled(GatsbyImage)`
   margin: 0 0 1.5rem 0;
 `;
 
@@ -111,6 +112,7 @@ const portfolioModalItem = (props) => {
   let content = {};
   let secondaryMobileStyles = {};
   let primaryMobileStyles = {};
+  const image = getImage(data.featuredImage.node);
 
   if (props.isDesktop) {
      secondaryMobileStyles = useSpring({
@@ -186,7 +188,7 @@ const portfolioModalItem = (props) => {
       <>
         <StyledPortfolioPrimary style={primaryMobileStyles}>
           <StyledPortfolioImage
-            src={data.featuredImage.node.mediaItemUrl}
+            image={image}
             alt={data.featuredImage.node.altText} />
           <SubTitle content='Project' />
           <Title

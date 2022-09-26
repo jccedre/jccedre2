@@ -90,7 +90,6 @@ class Home extends Component {
         return item.node.databaseId === this.state.modalItemID;
       });
 
-    //console.log(portfolioModalItemData)
     let modalContent = null;
     if (this.state.showModal) {
       modalContent = (
@@ -151,6 +150,7 @@ query {
             altText
             mediaItemUrl
             title
+            gatsbyImage(formats: WEBP, placeholder: BLURRED, width: 1400)
           }
         }
         homepage {
@@ -225,6 +225,7 @@ query {
             servicesSectionImage {
               altText
               mediaItemUrl
+              gatsbyImage(formats: WEBP, placeholder: BLURRED, width: 850)
             }
           }
           skillsSection {
@@ -261,7 +262,7 @@ query {
       }
     }
   }
-    allWpPortfolioItem {
+  allWpPortfolioItem {
     edges {
       node {
         content
@@ -280,6 +281,7 @@ query {
           node {
             altText
             mediaItemUrl
+            gatsbyImage(placeholder: BLURRED, formats: WEBP, width: 970)
           }
         }
       }

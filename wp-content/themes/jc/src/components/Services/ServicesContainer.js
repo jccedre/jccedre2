@@ -31,7 +31,7 @@ const servicesContainer = (props) => {
   return (
     <StyledServicesContainer>
       <ServicesImage 
-        src={servicesImage.mediaItemUrl}
+        gatsbyImage={servicesImage}
         alt={servicesImage.altText} />
       <ServicesContent 
         title={servicesTitle}

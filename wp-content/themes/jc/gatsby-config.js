@@ -30,6 +30,7 @@ module.exports = {
           `http://localhost:8000/graphql`,
         html: {
           useGatsbyImage: true,
+          generateWebpImages: true,
         },
         // verbose: true,
         // debug: {

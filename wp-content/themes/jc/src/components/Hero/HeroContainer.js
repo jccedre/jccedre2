@@ -23,7 +23,7 @@ const heroContainer = (props) => {
   return (
     <StyledHeroContainer>
       <HeroImageContainer 
-        src={props.heroImage.node.mediaItemUrl}
+        gatsbyImage={props.heroImage.node.gatsbyImage}
         alt={props.heroImage.node.altText}
         content={heroContent.heroJobTitle}
       />
