@@ -31,6 +31,10 @@ module.exports = {
         html: {
           useGatsbyImage: true,
         },
+        // verbose: true,
+        // debug: {
+        //   throwRefetchErrors: true,
+        // },
       },
     },
 
