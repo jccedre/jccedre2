@@ -125,7 +125,7 @@ const portfolioCarousel = (props) => {
               <PortfolioItem
                 key={item.node.databaseId}
                 portfolioItemClick={() => props.portfolioItemClick(item.node.databaseId)}
-                imageURL={item.node.featuredImage.node.mediaItemUrl}
+                gatsbyImage={item.node.featuredImage.node}
                 altText={item.node.featuredImage.node.altText} />
             </SwiperSlide>
           ))}
