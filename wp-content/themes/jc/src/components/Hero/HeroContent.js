@@ -66,6 +66,7 @@ const StyledLink = styled.a`
   transition: color 0.3s, transform 0.3s;
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   &:hover,
   &:focus {

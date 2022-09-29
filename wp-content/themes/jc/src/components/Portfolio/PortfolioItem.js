@@ -6,6 +6,8 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const StyledPortfolioItem = styled(GatsbyImage)`
   transition: box-shadow 1s;
+  cursor: pointer;
+  
   &:hover {
     z-index: 200;
     box-shadow: 0px 0px 21px 0px rgba(59,197,207,0.59);
