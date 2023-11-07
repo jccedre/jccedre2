@@ -88,6 +88,9 @@ module.exports = {
     // For Styled Components
     `gatsby-plugin-styled-components`,
 
+    // For Netlify
+    `gatsby-plugin-netlify`,
+
     // Load Google fonts
     {
       resolve: `gatsby-plugin-google-fonts-v2`,
